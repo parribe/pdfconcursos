@@ -25,8 +25,6 @@ def sql_table(con):
 
     cursorObj = con.cursor()
 
-    #cursorObj.execute("CREATE TABLE employees(id integer PRIMARY KEY, name text, salary real, department text, position text, hireDate text)")
-
     cursorObj.execute("CREATE TABLE concurso(id INTEGER PRIMARY KEY, dni text, apellidos text, nombre text, orden_pref integer, orden_conv integer)")
 
     con.commit()
