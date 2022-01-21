@@ -42,15 +42,16 @@ f = open("Listado_admitidos.txt", "r")
 listado=[]
 nuevo_listado=[]
 
-patron=["D.N.I.","Preferencia"] #Limpiamos el texto intermedio que hay en el documento
+patron="***" 
 
 #Leemos linea a linea el fichero
 for i in f.readlines():
-    if patron[0] in i or patron[1] in i: #Saltamos la líneas que contienen el texto de cabecera de las columnas de documento
-        continue
+    if patron in i: #Nos quedamos solo con las lineas que tenga ***
+    	listado.append(re.split('  +', i)) #creamos una lista con los elementos que se separan más de 2 espacios entre ellos y lo hacemos por linea
+        
     else:
         
-        listado.append(re.split('  +', i)) #creamos una lista con los elementos que se separan más de 2 espacios entre ellos y lo hacemos por linea
+        continue
 
 #ELIMINAMOS LOS SALTOS DE LINEA
 for x in listado:
